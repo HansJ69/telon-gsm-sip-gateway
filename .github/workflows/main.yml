@@ -86,6 +86,7 @@ jobs:
 
       - name: Build Android App Bundle
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           mkdir -p android/app/build/intermediates/assets/release/
           npx react-native bundle \
             --platform android \
@@ -94,6 +95,7 @@ jobs:
             --bundle-output android/app/build/intermediates/assets/release/index.android.bundle \
             --assets-dest android/app/build/intermediates/res/merged/release
         working-directory: telon-gateway-app
+
 
       - name: Build Android Release
         run: |
